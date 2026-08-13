@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>zhsub</title>
+<style>
+  body { font: 13px/1.4 system-ui, sans-serif; width: 260px; margin: 0; padding: 14px; }
+  h1 { font-size: 14px; margin: 0 0 10px; }
+  label { display: flex; align-items: center; gap: 8px; margin: 7px 0; }
+  label span { flex: 1; }
+  input[type="range"] { width: 100px; }
+  input[type="text"], input[type="password"], select { width: 140px; }
+  hr { border: 0; border-top: 1px solid #ddd; margin: 12px 0; }
+  .hint { color: #666; font-size: 11px; margin-top: 8px; }
+  #helper { font-weight: 600; }
+</style>
+<h1>zhsub</h1>
+<label><span>Enabled</span><input type="checkbox" id="enabled" /></label>
+<label><span>Hanzi</span><input type="checkbox" id="showHanzi" /></label>
+<label><span>Pinyin</span><input type="checkbox" id="showPinyin" /></label>
+<label><span>English</span><input type="checkbox" id="showEnglish" /></label>
+<label><span>Size</span><input type="range" id="fontSize" min="16" max="48" step="2" /></label>
+<hr />
+<label
+  ><span>Translator</span>
+  <select id="translator">
+    <option value="free">Free (no key)</option>
+    <option value="claude">Claude</option>
+  </select></label
+>
+<label><span>API key</span><input type="password" id="anthropicKey" placeholder="sk-ant-…" /></label>
+<hr />
+<label><span>Local Whisper helper</span><input type="checkbox" id="useHelper" /></label>
+<div class="hint">Helper: <span id="helper">checking…</span></div>
+<div class="hint">Needed only for videos with no caption track.</div>
+<script src="popup.js"></script>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>zhsub overlay preview</title>
+<link rel="stylesheet" href="../extension/dist/overlay.css" />
+<style>
+  body { margin: 0; background: #202124; color: #eee; font: 14px system-ui, sans-serif; }
+  .stage { position: relative; width: min(96vw, 1000px); aspect-ratio: 16/9; margin: 20px auto 0;
+           background: linear-gradient(135deg, #3a4a5a, #1a2530); border-radius: 8px; overflow: hidden; }
+  .fake-controls { position: absolute; bottom: 0; left: 0; right: 0; height: 48px;
+                   background: linear-gradient(transparent, rgba(0,0,0,.7)); }
+  .fake-controls::before { content: ''; position: absolute; left: 12px; right: 12px; top: 10px;
+                           height: 3px; background: #f00; border-radius: 2px; }
+  .bar { width: min(96vw, 1000px); margin: 14px auto; display: flex; gap: 8px; align-items: center; }
+  button { background: #3c4043; color: #eee; border: 1px solid #5f6368; border-radius: 6px;
+           padding: 6px 12px; cursor: pointer; font: inherit; }
+  button.off { opacity: .4; text-decoration: line-through; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="zhsub-host">
+      <div class="zhsub-overlay"></div>
+    </div>
+    <div class="fake-controls"></div>
+  </div>
+  <div class="bar">
+    <button data-toggle="showHanzi">Hanzi</button>
+    <button data-toggle="showPinyin">Pinyin</button>
+    <button data-toggle="showEnglish">English</button>
+    <button id="next">Next line</button>
+    <label>Size <input type="range" id="size" min="16" max="48" value="28" /></label>
+  </div>
+  <script src="demo.bundle.js"></script>
+</body>
+</html>

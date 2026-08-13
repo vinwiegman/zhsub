@@ -1,0 +1,6 @@
+node_modules/
+extension/dist/
+demo/demo.bundle.js
+helper/cache/
+helper/__pycache__/
+.scratch/

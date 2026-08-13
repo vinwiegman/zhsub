@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "zhsub — Mandarin / Pinyin / English subtitles",
+  "version": "0.1.0",
+  "description": "Three-line subtitles (hanzi, pinyin, English) on every YouTube and Bilibili video, including videos with no caption track.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://*.bilibili.com/*",
+    "https://*.hdslb.com/*",
+    "https://translate.googleapis.com/*",
+    "http://127.0.0.1:8787/*",
+    "http://localhost:8787/*"
+  ],
+  "background": { "service_worker": "dist/background.js" },
+  "action": { "default_popup": "dist/popup.html", "default_title": "zhsub" },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*", "https://*.bilibili.com/*"],
+      "js": ["dist/yt-bridge.js"],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://*.youtube.com/*", "https://*.bilibili.com/*"],
+      "js": ["dist/content.js"],
+      "css": ["dist/overlay.css"],
+      "world": "ISOLATED",
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
