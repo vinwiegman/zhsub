@@ -1,7 +1,6 @@
 # zhsub
 
-Three-line subtitles — hanzi, pinyin, English — on **every** YouTube and Bilibili video,
-including the ones with no caption track at all.
+Three line subtitles (characters, pinyin, English) on all YouTube and Bilibili videos, including videos without live captions
 
 Existing extensions fail on the common case: a Chinese video with **burned-in** subtitles
 and no machine-readable caption track. zhsub falls back to local Whisper transcription for
